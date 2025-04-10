@@ -1,12 +1,13 @@
 #include "win_cls_logger.h"
 
-__TSTR_FUNC__ void clslog(const TStr &msg, MessageType type)
+#include <Windows.h>
+
+__TSTR_TMPL__ void clslog(const TStr& msg, MessageType type)
 {
     DWORD output = STD_OUTPUT_HANDLE;
     WORD attr = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
     std::string typeName;
-    switch (type)
-    {
+    switch (type) {
     case MT_TEXT:
         output = STD_OUTPUT_HANDLE;
         attr = FOREGROUND_INTENSITY | FOREGROUND_BLUE;
@@ -34,22 +35,22 @@ __TSTR_FUNC__ void clslog(const TStr &msg, MessageType type)
     SetConsoleTextAttribute(hnd, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 }
 
-void clslog(const char *sz_msg, MessageType type)
+void clslog(const char* sz_msg, MessageType type)
 {
     clslog<std::string>(sz_msg, type);
 }
-void clslog(const wchar_t *sz_msg, MessageType type)
+void clslog(const wchar_t* sz_msg, MessageType type)
 {
     clslog<std::wstring>(sz_msg, type);
 }
-void clserr(const char *sz_err, const char *sz_inner_err)
+void clserr(const char* sz_err, const char* sz_inner_err)
 {
-    if (0 == sz_inner_err || 0 == strlen(sz_inner_err))
-    {
+    if (0 == sz_inner_err || 0 == strlen(sz_inner_err)) {
         clslog(sz_err, MT_ERR);
-    }
-    else
-    {
+    } else {
         clslog(tstr_format<std::string>("%s(%s)", sz_err, sz_inner_err), MT_ERR);
     }
 }
+
+template void clslog(const std::string&, MessageType);
+template void clslog(const std::wstring&, MessageType);

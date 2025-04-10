@@ -1,0 +1,233 @@
+---
+#BasedOnStyle: Microsoft
+BasedOnStyle: LLVM 
+#BasedOnStyle: Google  
+#BasedOnStyle: Chromium  
+#BasedOnStyle: Mozilla   
+#BasedOnStyle: WebKit   
+#BasedOnStyle: GNU     
+#BasedOnStyle: InheritParentConfig
+
+# 是否禁用格式化
+DisableFormat: false
+
+# 缩进宽度
+IndentWidth: 4
+
+# 使用tab字符: Never, ForIndentation, ForContinuationAndIndentation, Always
+UseTab: Never
+
+# TAB 宽度
+TabWidth: 4
+
+# 行宽限制
+# -- 0 - NoLimit
+ColumnLimit: 120
+
+#ReflowComments: true
+ReflowComments: IndentOnly
+
+#####################################################################################
+#####################################################################################
+
+Language: Cpp
+
+# 访问权限说明符(public/private等)的偏移
+AccessModifierOffset: -2
+
+#
+# -- Never - Remove all empty lines before access modifiers.
+# -- Leave - Keep existing empty lines before access modifiers.
+# -- LogicalBlock - Add empty line only when access modifier starts a new logical block. Logical block is a group of one or more member fields or functions(即访问修饰符后不为空).
+# -- Always -  Always add empty line before access modifiers unless access modifier is at the start of struct or class definition.
+EmptyLineBeforeAccessModifier: LogicalBlock
+
+# -- Never - Remove all empty lines after access modifiers.
+# -- Leave - Keep existing empty lines after access modifiers. MaxEmptyLinesToKeep is applied instead.
+# -- Always -  Always add empty line after access modifiers if there are none. MaxEmptyLinesToKeep is applied also.
+EmptyLineAfterAccessModifier: Never
+
+# 开括号(开圆括号、尖括号、方括号)后的对齐，超出行宽限制后才会应用，比如说函数参数等
+# This currently only applies to braced initializer lists (when Cpp11BracedListStyle is true) and parentheses(圆括号).
+# -- Align - Align parameters on the open bracket.
+# -- DontAlign - Don’t align, instead use ContinuationIndentWidth.
+# -- AlwaysBreak - Always break after an open bracket, if the parameters don’t fit on a single line.
+# -- BlockIndent - Always break after an open bracket, if the parameters don’t fit on a single line. Closing brackets will be placed on a new line.
+AlignAfterOpenBracket: Align
+
+# 圆括号内部的空格处理方式
+# -- Never - Never put a space in parentheses
+# -- Custom - Use SpacesInParensOptions
+SpacesInParens: Never
+SpacesInParensOptions:
+#  ExceptDoubleParentheses: false
+  InConditionalStatements: true
+  InCStyleCasts: true
+  Other: true
+
+# The number of columns to use to indent the contents of braced init lists. If unset, ContinuationIndentWidth is used.
+# BracedInitializerIndentWidth: 4
+
+# 连续赋值时，对齐所有等号
+AlignConsecutiveAssignments:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: true
+
+# 连续声明时，对齐所有声明的变量名
+AlignConsecutiveDeclarations: true
+
+# 行尾注释对齐方式
+# The alignment stops at closing braces after a line break, and only followed by other closing braces, a (do-) while, a lambda call, or a semicolon.
+# -- Leave
+# -- Always
+# -- Never
+AlignTrailingComments:
+  Kind: Always
+# OverEmptyLines: 0
+
+# Force pointers to the type for C++.
+DerivePointerAlignment: false
+
+# 指针和引用的对其方式。
+# 可能的值有：
+# -- PAS_Left (在配置中： Left) 指针左对齐。
+# -- PAS_Right (在配置中： Right) 指针右对齐。
+# -- PAS_Middle (在配置中： Middle) 指针中间对齐。
+PointerAlignment: Left
+
+# when using initialization for an array of structs aligns the fields into columns
+# -- None - Don’t align array initializer columns.
+# -- Left - Don’t align array initializer columns.
+# -- Right - Align array column and right justify the columns.
+AlignArrayOfStructures: Left
+
+# 函数声明的所有参数在放在下一行
+# If the function declaration doesn’t fit on a line, allow putting all parameters of a function declaration onto the next line even if BinPackParameters is false.
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# 是否允许短的代码块放在同一行
+AllowShortBlocksOnASingleLine: false
+
+# 短的case标签和语句放在同一行
+AllowShortCaseLabelsOnASingleLine: true
+
+# 短的函数放在同一行
+# -- None - 不把短的函数放在同一行
+# -- InlineOnly - 只把类内的内联函数放在同一行，全局的空函数不放在同一行
+# -- Empty - 只把空的函数放在同一行
+# -- Inline - 把类内的内联函数放在同一行，全局的空函数不放在同一行
+# -- All - 都允许放在同一行
+AllowShortFunctionsOnASingleLine: InlineOnly
+
+# 短的if语句保持在同一行
+AllowShortIfStatementsOnASingleLine: true
+
+# 短的循环保持在同一行
+AllowShortLoopsOnASingleLine: true
+
+# If a function call or braced initializer list doesn’t fit on a line, allow putting all arguments onto the next line
+# 注意：为true时不会控制参数是否每个一行
+AllowAllArgumentsOnNextLine: false
+
+# [deprecated]
+# PackConstructorInitializers
+# 所有构造函数初始化器放在单独的行，即使它们在一行内可以满足列限制
+# 当ConstructorInitializerAllOnOneLineOrOnePerLine为true时有效
+# AllowAllConstructorInitializersOnNextLine: true
+
+# [deprecated]
+# PackConstructorInitializers 
+# 控制构造函数初始化列表是放在一行还是拆分成多行
+# ConstructorInitializerAllOnOneLineOrOnePerLine: true
+
+# 构造函数初始化列表分割方式
+# -- BeforeColon - 在冒号 ':' 前方分割，冒号位于行首，逗号','位于行尾
+# -- BeforeComma - 在冒号和逗号前方分割，冒号和逗号都位于行首，并且对齐 
+# -- AfterColon - 在冒号和逗号后方分割，冒号和逗号位于行尾
+BreakConstructorInitializers: BeforeComma
+
+# 使用构造函数初始化列表缩进的字符数。
+ConstructorInitializerIndentWidth: 2
+
+#
+# -- Never - Always put each constructor initializer on its own line
+# -- BinPack - Bin-pack constructor initializers
+# -- CurrentLine - Put all constructor initializers on the current line if they fit. Otherwise, put each one on its own line
+# -- NextLine - Same as CurrentLine except that if all constructor initializers do not fit on the current line, try to fit them on the next line
+# -- NextLineOnly - Put all constructor initializers on the next line if they fit. Otherwise, put each one on its own line
+PackConstructorInitializers: Never
+
+# 函数调用时，参数的放置规则
+# -- false - 参数要么放在同一行，要么每个参数占用一行
+# -- true - 不做强制要求
+BinPackArguments: false
+
+# 函数声明、定义时，参数的放置规则
+# -- false - 参数要么放在同一行，要么每个参数占用一行
+# -- true - 不做强制要求
+BinPackParameters: false
+
+# 去除C++11的列表初始化的大括号{后和}前的空格
+Cpp11BracedListStyle:	false
+
+# 用于大括号换行样式。
+# 可能的值有：
+# -- BS_Attach (在配置中： Attach) 总是将大括号与上下文连在一起。
+# -- BS_Linux (在配置中： Linux) 像Attach一样, 但是在一个方法、命名空间或一个类定义的大括号之前换行
+# -- BS_Mozilla (在配置中： Mozilla) 像Attach一样, 但是在一个枚举、方法或记录定义前换行。
+# -- BS_Stroustrup (在配置中： Stroustrup) 像Attach一样,但是在方法定义、catch、和else前换行
+# -- BS_Allman (在配置中： Allman) 总是在大括号之前换行。
+# -- BS_GNU (在配置中： GNU) 总是在括号前中断，并添加一个额外的级别的缩进到控件语句的括号中，而不是类、函数或其他定义的括号中。
+# -- BS_WebKit (在配置中： WebKit) 像Attach一样, 但是在方法前换行。
+# -- BS_Custom (在配置中： Custom) 在“BraceWrapping”里配置每一个单独的大括号。
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterEnum: true
+  AfterStruct: false
+  AfterClass: false
+  AfterControlStatement: false
+  AfterCaseLabel: true
+  BeforeElse: true
+  BeforeCatch: true
+
+# 在三元运算符前换行
+# 当三元表达式不能放在同一行时，是否在三元操作符前方换行
+# -- true - 操作符位于新行的首部
+# -- false - 操作符位于上一行的尾部
+BreakBeforeTernaryOperators: true
+
+# 是否自动修正命名空间的结束注释
+# -- true - 在短的命名空间尾部，自动添加或修改错误的命名空间结束注释
+# -- false - 不自动修正
+FixNamespaceComments: true
+
+# 连续空行的最大数量
+MaxEmptyLinesToKeep: 4
+
+# 命名空间内部的缩进规则
+# -- None - 都不缩进
+# -- Inner - 只缩进嵌套的命名空间内容
+# -- All - 缩进所有命名空间内容
+NamespaceIndentation: None
+
+# foreach 循环
+ForEachMacros:
+  - foreach
+  - Q_FOREACH
+  - BOOST_FOREACH
+
+# 如果为真（true）, clang-format 将会分类#includes.
+SortIncludes: true
+
+# 多个 include 块（有空行分隔的include）排序时的分组规则
+# -- Preserve - 保留原有的块分隔，各自排序
+# -- Merge - 将所有的块视为同一个，然后进行排序
+# -- Regroup - 将所有的块视为同一个进行排序，然后按照 IncludeCategories 的规则进行分组
+IncludeBlocks: Preserve
+
+# 预处理命令(#if\#ifdef\#endif等)的缩进规则
+# -- None - 不进行缩进
+# -- AfterHash - 在前导'#'后缩进，'#'放在最左侧，之后的语句参与缩进
+# -- BeforeHash - 在前导'#'前进行缩进
+IndentPPDirectives: AfterHash

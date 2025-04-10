@@ -1,13 +1,24 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(
-    WinUtils 
+    oosu
     VERSION 1.0.0  
-    HOMEPAGE_URL "https://github.com/zuijiuzhou/WinUtils" 
+    HOMEPAGE_URL "https://github.com/zuijiuzhou/oosu" 
     LANGUAGES CXX C)
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(THIRD_DIR ${CMAKE_SOURCE_DIR}/third)
 set(THIRD_ARGPARSE_DIR ${THIRD_DIR}/argparse)
 set(THIRD_ARGPARSE_INCLUDE_DIR ${THIRD_ARGPARSE_DIR}/include)
+
+
+add_definitions(-DUNICODE -D_UNICODE)
+
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(src)

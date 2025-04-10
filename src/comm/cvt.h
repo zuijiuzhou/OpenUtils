@@ -1,5 +1,7 @@
 #pragma once
-#include "cutil_global.h"
+
+#include "comm_global.h"
+
 #include "std_str_util.h"
 
 template <typename TVal>

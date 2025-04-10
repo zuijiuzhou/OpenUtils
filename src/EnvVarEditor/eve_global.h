@@ -1,6 +1,7 @@
 #pragma once
-#ifdef _WINDOWS
-#include <crtdefs.h>
+#ifdef _WIN32
+#    include <crtdefs.h>
+#    define NOMINMAX
 #endif
 
 

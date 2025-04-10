@@ -1,6 +1,8 @@
 #include "win_shell_util.h"
 
-int start_as_admin(const std::wstring &exe, const std::wstring &params)
+#include <Windows.h>
+
+int start_as_admin(const std::wstring& exe, const std::wstring& params)
 {
     return 0;
 }
@@ -17,8 +19,7 @@ int restart_as_admin(bool waitForExit)
     ZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));
-    if (!CreateProcess(NULL, cmdline, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi))
-    {
+    if (!CreateProcess(NULL, cmdline, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
         printf("CreateProcess failed (%d)", GetLastError());
         return 1;
     }
