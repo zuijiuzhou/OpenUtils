@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(
-    oosu
+    OpenUtils
     VERSION 1.0.0  
-    HOMEPAGE_URL "https://github.com/zuijiuzhou/oosu" 
+    HOMEPAGE_URL "https://github.com/zuijiuzhou/OpenUtils" 
     LANGUAGES CXX C)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-set(CURRENT_TARGET_NAME comm)
+set(CURRENT_TARGET_NAME ouComm)
 
 add_definitions(-DOOSU_COMM_STATIC)
 
